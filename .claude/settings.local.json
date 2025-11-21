@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev)",
+      "Bash(chmod +x node_modules/.bin/next)",
+      "Bash(npm install @modelcontextprotocol/sdk)",
+      "Bash(cat /Users/shane/Downloads/bot-dashboard/data/bot-interactions.json)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "slug_id": "test-bot-1",
+      "COUNT": 1000,
+      "COUNT_DISTINCT(user_id)": 100
+    },
+    {
+      "slug_id": "test-bot-2",
+      "COUNT": 2000,
+      "COUNT_DISTINCT(user_id)": 200
+    },
+    {
+      "slug_id": "test-bot-3",
+      "COUNT": 1500,
+      "COUNT_DISTINCT(user_id)": 150
+    },
+    {
+      "slug_id": "test-bot-4",
+      "COUNT": 800,
+      "COUNT_DISTINCT(user_id)": 80
+    },
+    {
+      "slug_id": "test-bot-5",
+      "COUNT": 600,
+      "COUNT_DISTINCT(user_id)": 60
+    },
+    {
+      "COUNT": 5900,
+      "COUNT_DISTINCT(user_id)": 590
+    }
+  ],
+  "query_url": "https://test.example.com/query",
+  "query_pk": "TEST-12345"
+}
