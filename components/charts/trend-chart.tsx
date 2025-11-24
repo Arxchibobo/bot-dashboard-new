@@ -45,8 +45,8 @@ export default function TrendChart({ data }: TrendChartProps) {
         <div className="bg-white p-3 rounded shadow-lg border">
           <p className="font-semibold mb-1">{data.fullName}</p>
           <p className="text-sm">事件数: {data.eventCount.toLocaleString()}</p>
-          <p className="text-sm">用户数: {data.uniqueUsers.toLocaleString()}</p>
-          <p className="text-sm">活跃度: {data.avgActivity.toFixed(1)}</p>
+          <p className="text-sm">用户数: {data.uniqueUsers !== undefined ? data.uniqueUsers.toLocaleString() : 'N/A'}</p>
+          <p className="text-sm">活跃度: {data.avgActivity !== undefined ? data.avgActivity.toFixed(1) : 'N/A'}</p>
         </div>
       )
     }

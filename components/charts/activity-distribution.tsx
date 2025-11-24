@@ -15,9 +15,9 @@ interface ActivityDistributionProps {
 export default function ActivityDistribution({ data }: ActivityDistributionProps) {
   // 1. 活跃度分类统计
   const categories = {
-    high: data.filter(bot => bot.avgActivity >= 8).length,
-    medium: data.filter(bot => bot.avgActivity >= 5 && bot.avgActivity < 8).length,
-    low: data.filter(bot => bot.avgActivity < 5).length
+    high: data.filter(bot => (bot.avgActivity ?? 0) >= 8).length,
+    medium: data.filter(bot => (bot.avgActivity ?? 0) >= 5 && (bot.avgActivity ?? 0) < 8).length,
+    low: data.filter(bot => (bot.avgActivity ?? 0) < 5).length
   }
 
   // 2. 图表数据

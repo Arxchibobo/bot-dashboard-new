@@ -17,9 +17,9 @@ export default function ScatterChartComp({ data }: ScatterChartCompProps) {
   const chartData = data
     .slice(0, 50)
     .map(bot => ({
-      x: bot.uniqueUsers,
+      x: bot.uniqueUsers ?? 0,
       y: bot.eventCount,
-      z: bot.avgActivity * 10, // 控制点的大小
+      z: (bot.avgActivity ?? 0) * 10, // 控制点的大小
       name: bot.slug_id
     }))
 

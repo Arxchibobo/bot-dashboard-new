@@ -4,7 +4,13 @@
       "Bash(npm run dev)",
       "Bash(chmod +x node_modules/.bin/next)",
       "Bash(npm install @modelcontextprotocol/sdk)",
-      "Bash(cat /Users/shane/Downloads/bot-dashboard/data/bot-interactions.json)"
+      "Bash(cat /Users/shane/Downloads/bot-dashboard/data/bot-interactions.json)",
+      "Bash(claude mcp:*)",
+      "Bash(curl -X POST http://52.12.230.109:3000/mcp -H \"Content-Type: application/json\" -d '{\"\"jsonrpc\"\":\"\"2.0\"\",\"\"method\"\":\"\"initialize\"\",\"\"params\"\":{},\"\"id\"\":1}' --max-time 5)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(timeout:*)"
     ],
     "deny": [],
     "ask": []

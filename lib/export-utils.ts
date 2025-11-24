@@ -12,8 +12,8 @@ export function exportToCSV(data: BotInteraction[], filename: string = 'bot-data
   const rows = data.map(bot => [
     bot.slug_id,
     bot.eventCount,
-    bot.uniqueUsers,
-    bot.avgActivity.toFixed(1)
+    bot.uniqueUsers ?? 'N/A',
+    bot.avgActivity?.toFixed(1) ?? 'N/A'
   ])
 
   // 2. 组装 CSV 内容
@@ -42,8 +42,8 @@ export function exportToExcel(data: BotInteraction[], filename: string = 'bot-da
     ...data.map(bot => [
       bot.slug_id,
       bot.eventCount,
-      bot.uniqueUsers,
-      parseFloat(bot.avgActivity.toFixed(1))
+      bot.uniqueUsers ?? 0,
+      bot.avgActivity ? parseFloat(bot.avgActivity.toFixed(1)) : 0
     ])
   ]
 
@@ -115,7 +115,7 @@ export function getExportStats(data: BotInteraction[]) {
   return {
     totalBots: data.length,
     totalEvents: data.reduce((sum, bot) => sum + bot.eventCount, 0),
-    totalUsers: data.reduce((sum, bot) => sum + bot.uniqueUsers, 0),
-    avgActivity: (data.reduce((sum, bot) => sum + bot.avgActivity, 0) / data.length).toFixed(1)
+    totalUsers: data.reduce((sum, bot) => sum + (bot.uniqueUsers ?? 0), 0),
+    avgActivity: (data.reduce((sum, bot) => sum + (bot.avgActivity ?? 0), 0) / data.length).toFixed(1)
   }
 }

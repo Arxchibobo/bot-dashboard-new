@@ -9,8 +9,12 @@ import FunnelChart from '@/components/funnel-chart'
 import { Loader2 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
-// 默认日期范围
-const DEFAULT_START_DATE = '2025-10-15'
+// 默认日期范围：最近7天
+const getDefaultStartDate = () => {
+  const date = new Date()
+  date.setDate(date.getDate() - 7) // 往前推7天
+  return date.toISOString().split('T')[0]
+}
 const getDefaultEndDate = () => new Date().toISOString().split('T')[0]
 
 /**
@@ -20,7 +24,7 @@ const getDefaultEndDate = () => new Date().toISOString().split('T')[0]
 export default function HomePage() {
   const [data, setData] = useState<DashboardData | null>(null)
   const [loading, setLoading] = useState(true)
-  const [startDate, setStartDate] = useState(DEFAULT_START_DATE)
+  const [startDate, setStartDate] = useState(getDefaultStartDate())
   const [endDate, setEndDate] = useState(getDefaultEndDate())
 
   // 获取数据的函数
@@ -116,13 +120,14 @@ export default function HomePage() {
     toast.success('正在更新数据...')
   }
 
-  // 重置日期范围
+  // 重置日期范围（重置为最近7天）
   const handleReset = () => {
+    const defaultStart = getDefaultStartDate()
     const defaultEnd = getDefaultEndDate()
-    setStartDate(DEFAULT_START_DATE)
+    setStartDate(defaultStart)
     setEndDate(defaultEnd)
-    fetchData(DEFAULT_START_DATE, defaultEnd)
-    toast.success('已重置为默认时间范围')
+    fetchData(defaultStart, defaultEnd)
+    toast.success('已重置为最近7天')
   }
 
   if (loading || !data) {

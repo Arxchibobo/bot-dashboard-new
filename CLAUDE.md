@@ -239,3 +239,41 @@ npm run update-data
 - **Main Page**: `app/page.tsx` (entry point)
 - **Charts**: `components/charts/*.tsx`
 - **Filters**: `components/filters/*.tsx`
+
+## Development Environment
+- OS: Windows 10.0.26200
+- Shell: Git Bash
+- Path format: Windows (use forward slashes in Git Bash)
+- File system: Case-insensitive
+- Line endings: CRLF (configure Git autocrlf)
+
+## Playwright MCP Guide
+
+File paths:
+- Screenshots: `./CCimages/screenshots/`
+- PDFs: `./CCimages/pdfs/`
+
+Browser version fix:
+- Error: "Executable doesn't exist at chromium-1179" → Version mismatch
+- Quick fix: `cd ~/AppData/Local/ms-playwright && cmd //c "mklink /J chromium-1179 chromium-1181"`
+- Or install: `npx playwright@1.40.0 install chromium`
+
+## MCPhub MCP Guide
+
+**Services**:
+- Bytebase: Execute SQL queries
+- Statsig: A/B test experiment analytics
+- Honeycomb: Application logs and metrics
+
+**Setup**:
+1. Select "MCPhub" from template dropdown
+2. If authentication required, add header:
+   - `Authorization: Bearer YOUR_TOKEN` or
+   - `X-Session-ID: YOUR_SESSION_ID`
+
+**Usage**:
+- Database: "Execute SQL to find active users"
+- Experiments: "Show results for experiment-123"
+- Logs: "Find errors in the last hour"
+
+**Important**: Verify query parameters before execution, use appropriate time ranges

@@ -9,6 +9,10 @@ import { NextRequest, NextResponse } from 'next/server'
 import { fetchHoneycombData, fetchLoginStats, fetchUserFunnel } from '@/lib/honeycomb-mcp-client'
 import { transformHoneycombData } from '@/lib/transform-honeycomb'
 
+// 设置 API 路由超时时间为 5 分钟 (300 秒)
+// 这允许 Honeycomb 查询有足够的时间完成大范围数据查询
+export const maxDuration = 300
+
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
@@ -18,17 +22,17 @@ export async function GET(request: NextRequest) {
     let startTime: number | undefined
     let endTime: number | undefined
 
-    // 解析开始时间
+    // 解析开始时间（UTC 时区）
     if (startDate) {
-      const date = new Date(startDate)
+      const date = new Date(startDate + 'T00:00:00Z') // 明确使用 UTC
       if (!isNaN(date.getTime())) {
         startTime = Math.floor(date.getTime() / 1000)
       }
     }
 
-    // 解析结束时间
+    // 解析结束时间（UTC 时区）
     if (endDate) {
-      const date = new Date(endDate + 'T23:59:59') // 包含结束日期的整天
+      const date = new Date(endDate + 'T23:59:59Z') // 明确使用 UTC，包含结束日期的整天
       if (!isNaN(date.getTime())) {
         endTime = Math.floor(date.getTime() / 1000)
       }
@@ -53,13 +57,25 @@ export async function GET(request: NextRequest) {
     let dashboardData: any;
 
     if (results[0].status === 'rejected') {
-      console.error('⚠️ Bot data query failed, returning partial data:', results[0].reason.message);
+      const errorMessage = results[0].reason?.message || '未知错误';
+      console.error('⚠️ Bot data query failed, returning partial data:', errorMessage);
+
+      // 检查是否是超时错误
+      const isTimeout = errorMessage.includes('timeout') || errorMessage.includes('timed out');
+
       // 主查询失败，返回空的Bot数据，但保留其他统计信息
       dashboardData = {
         lastUpdate: new Date().toISOString(),
         totalEvents: 0,
         totalUsers: 0,
-        bots: []
+        bots: [],
+        errorInfo: {
+          type: isTimeout ? 'timeout' : 'error',
+          message: errorMessage,
+          suggestion: isTimeout
+            ? '查询超时，请尝试缩小时间范围或稍后重试'
+            : '查询失败，请检查网络连接或稍后重试'
+        }
       };
     } else {
       // 主查询成功，转换数据格式

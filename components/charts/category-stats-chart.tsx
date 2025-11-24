@@ -29,21 +29,21 @@ export default function CategoryStatsChart({
       },
       {
         category: '高活跃',
-        count: data.filter(bot => bot.avgActivity >= 8).length,
+        count: data.filter(bot => (bot.avgActivity ?? 0) >= 8).length,
         color: '#f59e0b',  // 橙色
         key: 'high-activity'
       },
       {
         category: '新兴潜力',
         count: data.filter(bot =>
-          bot.uniqueUsers < 50 && bot.avgActivity >= 6
+          (bot.uniqueUsers ?? 0) < 50 && (bot.avgActivity ?? 0) >= 6
         ).length,
         color: '#10b981',  // 绿色
         key: 'emerging'
       },
       {
         category: '受欢迎',
-        count: data.filter(bot => bot.uniqueUsers >= 100).length,
+        count: data.filter(bot => (bot.uniqueUsers ?? 0) >= 100).length,
         color: '#3b82f6',  // 蓝色
         key: 'popular'
       }

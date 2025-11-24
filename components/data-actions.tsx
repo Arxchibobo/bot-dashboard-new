@@ -65,7 +65,7 @@ export default function DataActions({ allData, filteredData }: DataActionsProps)
       setMessage('正在从 Honeycomb 获取最新数据...')
 
       // 调用后端 API，通过 MCP 查询 Honeycomb
-      const response = await fetch('/api/refresh', {
+      const response = await fetch('/api/honeycomb/update', {
         method: 'POST',
       })
 

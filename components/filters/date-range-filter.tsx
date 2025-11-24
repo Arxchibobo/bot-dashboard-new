@@ -90,7 +90,7 @@ export default function DateRangeFilter({
 
       {/* 快捷周期选择 */}
       <div className="space-y-2">
-        <label className="text-xs text-gray-600 font-medium">快捷周期（周五至下周日，9天）</label>
+        <label className="text-xs text-gray-600 font-medium">快捷周期（从今天开始，每个9天）</label>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {weekPeriods.map((period) => (
             <Button
@@ -106,7 +106,7 @@ export default function DateRangeFilter({
             >
               <div className="text-left w-full">
                 <div className="font-medium">{period.label.split(' (')[0]}</div>
-                <div className="text-[10px] opacity-80">{period.startDate} 至 {period.endDate}</div>
+                <div className="text-[10px] opacity-80">{period.startDate} ~ {period.endDate}</div>
               </div>
             </Button>
           ))}
@@ -160,7 +160,7 @@ export default function DateRangeFilter({
       </div>
 
       <div className="text-xs text-gray-500 border-t pt-3">
-        <p>💡 提示：快捷周期按钮可快速查询9天数据，避免超时</p>
+        <p>💡 提示：快捷周期从今天往回推算，每个9天，点击即可快速查询</p>
       </div>
     </div>
   )
