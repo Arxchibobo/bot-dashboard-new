@@ -6,6 +6,7 @@ import StatsCards from '@/components/stats-cards'
 import DashboardWrapper from '@/components/dashboard-wrapper'
 import DateRangeFilter from '@/components/filters/date-range-filter'
 import FunnelChart from '@/components/funnel-chart'
+import RevenueChart from '@/components/charts/revenue-chart'
 import { Loader2 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
@@ -158,6 +159,7 @@ export default function HomePage() {
         botCount={data.bots.length}
         lastUpdate={data.lastUpdate}
         loginStats={data.loginStats}
+        revenueStats={data.revenueStats}
       />
 
       {/* 用户行为转化漏斗 */}
@@ -165,10 +167,17 @@ export default function HomePage() {
         <FunnelChart funnel={data.userFunnel} />
       )}
 
+      {/* 收入趋势图表 */}
+      {data.dailyRevenue && data.dailyRevenue.length > 0 && (
+        <RevenueChart dailyRevenue={data.dailyRevenue} />
+      )}
+
       {/* 图表和表格（包含交互逻辑） */}
       <DashboardWrapper
         bots={data.bots}
         lastUpdate={data.lastUpdate}
+        totalEvents={data.totalEvents}
+        totalUsers={data.totalUsers}
       />
     </div>
   )

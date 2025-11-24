@@ -9,6 +9,8 @@ import { PresetFilter } from '@/lib/filter-utils'
 interface DashboardClientProps {
   initialBots: BotInteraction[]
   lastUpdate: string
+  totalEvents: number                            // 所有 Bot 的总事件数
+  totalUsers: number                             // 所有 Bot 的总用户数
   externalFilterTrigger?: PresetFilter | null  // 外部触发的筛选器
   onFilterApplied?: () => void                   // 筛选应用后的回调
 }
@@ -20,6 +22,8 @@ interface DashboardClientProps {
 export default function DashboardClient({
   initialBots,
   lastUpdate,
+  totalEvents,
+  totalUsers,
   externalFilterTrigger,
   onFilterApplied
 }: DashboardClientProps) {
@@ -44,7 +48,14 @@ export default function DashboardClient({
       {/* 数据表格区域 */}
       <div className="bg-white rounded-lg shadow">
         <div className="px-6 py-4 border-b">
-          <h3 className="text-lg font-semibold text-gray-900">Bot 交互详情</h3>
+          <div className="flex items-baseline gap-3 flex-wrap">
+            <h3 className="text-lg font-semibold text-gray-900">Bot 交互详情</h3>
+            <span className="text-sm text-gray-600">
+              (共 <span className="font-semibold text-blue-600">{initialBots.length}</span> 个 Bot
+              | 总事件: <span className="font-semibold text-purple-600">{totalEvents.toLocaleString()}</span>
+              | 总用户: <span className="font-semibold text-green-600">{totalUsers.toLocaleString()}</span>)
+            </span>
+          </div>
           <p className="text-sm text-gray-500 mt-1">
             显示所有 Bot 的交互数据，支持排序、搜索和筛选
           </p>

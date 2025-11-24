@@ -69,98 +69,95 @@ export default function DateRangeFilter({
   const minDate = '2025-10-15'
 
   return (
-    <div className="space-y-4 p-4 border border-gray-200 rounded-lg bg-white">
+    <div className="space-y-3 p-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <Calendar className="h-5 w-5 text-gray-500" />
-          <p className="text-sm font-medium text-gray-700">时间范围筛选</p>
+          <Calendar className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+          <p className="text-xs font-medium text-gray-700 dark:text-gray-200">时间范围筛选</p>
         </div>
         {onReset && (
           <Button
             variant="ghost"
             size="sm"
             onClick={handleReset}
-            className="h-8 text-gray-500 hover:text-gray-700"
+            className="h-7 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             title="重置为默认范围"
           >
-            <X className="h-4 w-4" />
+            <X className="h-3 w-3" />
           </Button>
         )}
       </div>
 
-      {/* 快捷周期选择 */}
-      <div className="space-y-2">
-        <label className="text-xs text-gray-600 font-medium">快捷周期（从今天开始，每个9天）</label>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+      {/* 快捷周期选择 - 横向排列 */}
+      <div className="space-y-1.5">
+        <label className="text-xs text-gray-600 dark:text-gray-400 font-medium">快捷周期（每个9天）</label>
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-1.5">
           {weekPeriods.map((period) => (
             <Button
               key={period.id}
               variant={selectedPeriodId === period.id ? "default" : "outline"}
               size="sm"
               onClick={() => handlePeriodSelect(period.id)}
-              className={`text-xs h-auto py-2 px-3 ${
+              className={`text-xs h-auto py-1.5 px-2 ${
                 selectedPeriodId === period.id
                   ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                  : 'hover:bg-blue-50 hover:border-blue-300'
+                  : 'hover:bg-blue-50 hover:border-blue-300 dark:hover:bg-gray-800'
               }`}
             >
-              <div className="text-left w-full">
-                <div className="font-medium">{period.label.split(' (')[0]}</div>
-                <div className="text-[10px] opacity-80">{period.startDate} ~ {period.endDate}</div>
+              <div className="text-center w-full">
+                <div className="font-medium text-[11px]">{period.label.split(' (')[0]}</div>
+                <div className="text-[9px] opacity-75 leading-tight mt-0.5">
+                  {period.startDate.slice(5)} ~ {period.endDate.slice(5)}
+                </div>
               </div>
             </Button>
           ))}
         </div>
       </div>
 
-      {/* 自定义日期选择 */}
-      <div className="space-y-2">
-        <label className="text-xs text-gray-600 font-medium">自定义日期范围</label>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="space-y-1">
-            <label className="text-xs text-gray-600">开始日期</label>
+      {/* 自定义日期选择 - 单行内联布局 */}
+      <div className="space-y-1.5">
+        <label className="text-xs text-gray-600 dark:text-gray-400 font-medium">自定义范围</label>
+        <div className="flex items-end gap-2">
+          <div className="flex-1">
             <Input
               type="date"
               value={localStartDate}
               onChange={(e) => {
                 setLocalStartDate(e.target.value)
-                setSelectedPeriodId(null) // 清除周期选择
+                setSelectedPeriodId(null)
               }}
               min={minDate}
               max={maxDate}
-              className="text-sm"
+              className="text-xs h-8 dark:bg-gray-800 dark:border-gray-700"
             />
           </div>
-          <div className="space-y-1">
-            <label className="text-xs text-gray-600">结束日期</label>
+          <div className="flex-1">
             <Input
               type="date"
               value={localEndDate}
               onChange={(e) => {
                 setLocalEndDate(e.target.value)
-                setSelectedPeriodId(null) // 清除周期选择
+                setSelectedPeriodId(null)
               }}
               min={localStartDate || minDate}
               max={maxDate}
-              className="text-sm"
+              className="text-xs h-8 dark:bg-gray-800 dark:border-gray-700"
             />
           </div>
-        </div>
-
-        <div className="flex justify-end">
           <Button
             onClick={handleApply}
             size="sm"
             disabled={!localStartDate || !localEndDate || localStartDate > localEndDate}
-            className="bg-blue-600 hover:bg-blue-700"
+            className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 h-8 px-3 text-xs"
           >
-            应用自定义范围
+            应用
           </Button>
         </div>
       </div>
 
-      <div className="text-xs text-gray-500 border-t pt-3">
-        <p>💡 提示：快捷周期从今天往回推算，每个9天，点击即可快速查询</p>
+      <div className="text-[10px] text-gray-500 dark:text-gray-400 border-t dark:border-gray-700 pt-2">
+        💡 快捷周期从今天往回推算，点击即可快速查询
       </div>
     </div>
   )

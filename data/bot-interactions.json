@@ -1,0 +1,431 @@
+{
+  "lastUpdate": "2025-11-24T12:50:27.570Z",
+  "totalEvents": 161780,
+  "totalUsers": 10981,
+  "bots": [
+    {
+      "slug_id": "TOTAL",
+      "eventCount": 80890,
+      "uniqueUsers": 5055,
+      "avgActivity": 16
+    },
+    {
+      "slug_id": "faceswap-diy",
+      "eventCount": 38410,
+      "uniqueUsers": 2153,
+      "avgActivity": 17.8
+    },
+    {
+      "slug_id": "linkedin-profile-maker",
+      "eventCount": 12061,
+      "uniqueUsers": 862,
+      "avgActivity": 14
+    },
+    {
+      "slug_id": "thumbnail-generator",
+      "eventCount": 8026,
+      "uniqueUsers": 963,
+      "avgActivity": 8.3
+    },
+    {
+      "slug_id": "arcane-filter",
+      "eventCount": 4006,
+      "uniqueUsers": 214,
+      "avgActivity": 18.7
+    },
+    {
+      "slug_id": "nano-banana-image",
+      "eventCount": 3919,
+      "uniqueUsers": 462,
+      "avgActivity": 8.5
+    },
+    {
+      "slug_id": "baby-face-maker",
+      "eventCount": 1716,
+      "uniqueUsers": 129,
+      "avgActivity": 13.3
+    },
+    {
+      "slug_id": "old-photo-restoration",
+      "eventCount": 1700,
+      "uniqueUsers": 86,
+      "avgActivity": 19.8
+    },
+    {
+      "slug_id": "linkedin-photo-generator",
+      "eventCount": 1577,
+      "uniqueUsers": 164,
+      "avgActivity": 9.6
+    },
+    {
+      "slug_id": "zootopia-filter",
+      "eventCount": 1510,
+      "uniqueUsers": 131,
+      "avgActivity": 11.5
+    },
+    {
+      "slug_id": "bald-filter",
+      "eventCount": 1214,
+      "uniqueUsers": 103,
+      "avgActivity": 11.8
+    },
+    {
+      "slug_id": "labubu-maker",
+      "eventCount": 981,
+      "uniqueUsers": 65,
+      "avgActivity": 15.1
+    },
+    {
+      "slug_id": "career-photo-generator",
+      "eventCount": 961,
+      "uniqueUsers": 82,
+      "avgActivity": 11.7
+    },
+    {
+      "slug_id": "head-swap",
+      "eventCount": 528,
+      "uniqueUsers": 35,
+      "avgActivity": 15.1
+    },
+    {
+      "slug_id": "photo-lighting-enhancer",
+      "eventCount": 358,
+      "uniqueUsers": 31,
+      "avgActivity": 11.5
+    },
+    {
+      "slug_id": "minecraft-filter",
+      "eventCount": 306,
+      "uniqueUsers": 20,
+      "avgActivity": 15.3
+    },
+    {
+      "slug_id": "sora-video-generator",
+      "eventCount": 301,
+      "uniqueUsers": 31,
+      "avgActivity": 9.7
+    },
+    {
+      "slug_id": "buzz-cut-filter",
+      "eventCount": 274,
+      "uniqueUsers": 24,
+      "avgActivity": 11.4
+    },
+    {
+      "slug_id": "indian-style-filter",
+      "eventCount": 207,
+      "uniqueUsers": 20,
+      "avgActivity": 10.4
+    },
+    {
+      "slug_id": "demon-hunters-filter",
+      "eventCount": 180,
+      "uniqueUsers": 13,
+      "avgActivity": 13.8
+    },
+    {
+      "slug_id": "squid-game-filter",
+      "eventCount": 162,
+      "uniqueUsers": 12,
+      "avgActivity": 13.5
+    },
+    {
+      "slug_id": "kardashian-style-photo",
+      "eventCount": 141,
+      "uniqueUsers": 13,
+      "avgActivity": 10.8
+    },
+    {
+      "slug_id": "demon-slayer-generator",
+      "eventCount": 127,
+      "uniqueUsers": 12,
+      "avgActivity": 10.6
+    },
+    {
+      "slug_id": "gta-filter",
+      "eventCount": 125,
+      "uniqueUsers": 10,
+      "avgActivity": 12.5
+    },
+    {
+      "slug_id": "wedding-photo-maker",
+      "eventCount": 125,
+      "uniqueUsers": 21,
+      "avgActivity": 6
+    },
+    {
+      "slug_id": "zootopia-2-poster-maker",
+      "eventCount": 111,
+      "uniqueUsers": 10,
+      "avgActivity": 11.1
+    },
+    {
+      "slug_id": "dispatch-comic-hero",
+      "eventCount": 101,
+      "uniqueUsers": 11,
+      "avgActivity": 9.2
+    },
+    {
+      "slug_id": "watermark-remover",
+      "eventCount": 100,
+      "uniqueUsers": 18,
+      "avgActivity": 5.6
+    },
+    {
+      "slug_id": "stranger-things-filter",
+      "eventCount": 98,
+      "uniqueUsers": 19,
+      "avgActivity": 5.2
+    },
+    {
+      "slug_id": "headshot-generator",
+      "eventCount": 93,
+      "uniqueUsers": 17,
+      "avgActivity": 5.5
+    },
+    {
+      "slug_id": "outfit-generator",
+      "eventCount": 87,
+      "uniqueUsers": 6,
+      "avgActivity": 14.5
+    },
+    {
+      "slug_id": "disney-style-filter",
+      "eventCount": 82,
+      "uniqueUsers": 10,
+      "avgActivity": 8.2
+    },
+    {
+      "slug_id": "beauty-filter",
+      "eventCount": 81,
+      "uniqueUsers": 19,
+      "avgActivity": 4.3
+    },
+    {
+      "slug_id": "floral-style-portrait",
+      "eventCount": 72,
+      "uniqueUsers": 8,
+      "avgActivity": 9
+    },
+    {
+      "slug_id": "gta-style-filter",
+      "eventCount": 72,
+      "uniqueUsers": 6,
+      "avgActivity": 12
+    },
+    {
+      "slug_id": "pixel-art-generator",
+      "eventCount": 72,
+      "uniqueUsers": 4,
+      "avgActivity": 18
+    },
+    {
+      "slug_id": "hairstyle-generator",
+      "eventCount": 67,
+      "uniqueUsers": 7,
+      "avgActivity": 9.6
+    },
+    {
+      "slug_id": "3d-toy-printer",
+      "eventCount": 66,
+      "uniqueUsers": 5,
+      "avgActivity": 13.2
+    },
+    {
+      "slug_id": "apple-3d-emoji",
+      "eventCount": 65,
+      "uniqueUsers": 5,
+      "avgActivity": 13
+    },
+    {
+      "slug_id": "zootopia-character-look",
+      "eventCount": 64,
+      "uniqueUsers": 6,
+      "avgActivity": 10.7
+    },
+    {
+      "slug_id": "marvel-rivals-filter",
+      "eventCount": 62,
+      "uniqueUsers": 9,
+      "avgActivity": 6.9
+    },
+    {
+      "slug_id": "ghibli-gram-filter",
+      "eventCount": 62,
+      "uniqueUsers": 11,
+      "avgActivity": 5.6
+    },
+    {
+      "slug_id": "powerpuff-filter",
+      "eventCount": 57,
+      "uniqueUsers": 7,
+      "avgActivity": 8.1
+    },
+    {
+      "slug_id": "background-remover",
+      "eventCount": 56,
+      "uniqueUsers": 10,
+      "avgActivity": 5.6
+    },
+    {
+      "slug_id": "jojo-filter",
+      "eventCount": 54,
+      "uniqueUsers": 4,
+      "avgActivity": 13.5
+    },
+    {
+      "slug_id": "disney-dress-photo",
+      "eventCount": 51,
+      "uniqueUsers": 3,
+      "avgActivity": 17
+    },
+    {
+      "slug_id": "ps2-filter",
+      "eventCount": 46,
+      "uniqueUsers": 5,
+      "avgActivity": 9.2
+    },
+    {
+      "slug_id": "demon-slayer-filter",
+      "eventCount": 45,
+      "uniqueUsers": 5,
+      "avgActivity": 9
+    },
+    {
+      "slug_id": "thobe-generator-online",
+      "eventCount": 40,
+      "uniqueUsers": 11,
+      "avgActivity": 3.6
+    },
+    {
+      "slug_id": "retro-little-mermaid",
+      "eventCount": 34,
+      "uniqueUsers": 8,
+      "avgActivity": 4.3
+    },
+    {
+      "slug_id": "blind-box-figurine",
+      "eventCount": 31,
+      "uniqueUsers": 3,
+      "avgActivity": 10.3
+    },
+    {
+      "slug_id": "magazine-cover-maker",
+      "eventCount": 24,
+      "uniqueUsers": 4,
+      "avgActivity": 6
+    },
+    {
+      "slug_id": "ai-cosplay-photo",
+      "eventCount": 22,
+      "uniqueUsers": 3,
+      "avgActivity": 7.3
+    },
+    {
+      "slug_id": "abaya-generator-online",
+      "eventCount": 20,
+      "uniqueUsers": 4,
+      "avgActivity": 5
+    },
+    {
+      "slug_id": "frankenstein-poster-filter",
+      "eventCount": 18,
+      "uniqueUsers": 4,
+      "avgActivity": 4.5
+    },
+    {
+      "slug_id": "photo-with-stitch",
+      "eventCount": 17,
+      "uniqueUsers": 3,
+      "avgActivity": 5.7
+    },
+    {
+      "slug_id": "leaf-style-portrait",
+      "eventCount": 14,
+      "uniqueUsers": 2,
+      "avgActivity": 7
+    },
+    {
+      "slug_id": "virtual-fitting",
+      "eventCount": 13,
+      "uniqueUsers": 4,
+      "avgActivity": 3.3
+    },
+    {
+      "slug_id": "wednesday-style-filter",
+      "eventCount": 12,
+      "uniqueUsers": 2,
+      "avgActivity": 6
+    },
+    {
+      "slug_id": "cartoon-portrait-maker",
+      "eventCount": 11,
+      "uniqueUsers": 3,
+      "avgActivity": 3.7
+    },
+    {
+      "slug_id": "photo-with-pikachu",
+      "eventCount": 11,
+      "uniqueUsers": 2,
+      "avgActivity": 5.5
+    },
+    {
+      "slug_id": "jibaro-costume",
+      "eventCount": 10,
+      "uniqueUsers": 1,
+      "avgActivity": 10
+    },
+    {
+      "slug_id": "style-transfer",
+      "eventCount": 8,
+      "uniqueUsers": 2,
+      "avgActivity": 4
+    },
+    {
+      "slug_id": "star-comic-cartoon",
+      "eventCount": 6,
+      "uniqueUsers": 1,
+      "avgActivity": 6
+    },
+    {
+      "slug_id": "zootopia-selfie-photo",
+      "eventCount": 6,
+      "uniqueUsers": 2,
+      "avgActivity": 3
+    },
+    {
+      "slug_id": "lisa-filter",
+      "eventCount": 4,
+      "uniqueUsers": 1,
+      "avgActivity": 4
+    },
+    {
+      "slug_id": "skull-filter",
+      "eventCount": 4,
+      "uniqueUsers": 2,
+      "avgActivity": 2
+    },
+    {
+      "slug_id": "red-porcelain-portrait",
+      "eventCount": 2,
+      "uniqueUsers": 1,
+      "avgActivity": 2
+    },
+    {
+      "slug_id": "halloween-outfit",
+      "eventCount": 2,
+      "uniqueUsers": 1,
+      "avgActivity": 2
+    },
+    {
+      "slug_id": "photo-with-wednesday",
+      "eventCount": 2,
+      "uniqueUsers": 1,
+      "avgActivity": 2
+    },
+    {
+      "slug_id": "OTHER",
+      "eventCount": 0
+    }
+  ]
+}

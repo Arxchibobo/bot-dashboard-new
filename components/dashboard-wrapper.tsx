@@ -9,13 +9,15 @@ import { PresetFilter } from '@/lib/filter-utils'
 interface DashboardWrapperProps {
   bots: BotInteraction[]
   lastUpdate: string
+  totalEvents: number    // 所有 Bot 的总事件数
+  totalUsers: number     // 所有 Bot 的总用户数
 }
 
 /**
  * 仪表盘包装组件
  * 管理图表和表格之间的交互,将分类点击事件连接到筛选器
  */
-export default function DashboardWrapper({ bots, lastUpdate }: DashboardWrapperProps) {
+export default function DashboardWrapper({ bots, lastUpdate, totalEvents, totalUsers }: DashboardWrapperProps) {
   // 用于触发 BotTable 筛选器的状态
   const [triggerFilter, setTriggerFilter] = useState<PresetFilter | null>(null)
 
@@ -49,7 +51,6 @@ export default function DashboardWrapper({ bots, lastUpdate }: DashboardWrapperP
       {/* 数据可视化图表 */}
       <ChartsSection
         data={bots}
-        onCategoryClick={handleCategoryClick}
       />
 
       {/* 表格区域 */}
@@ -57,6 +58,8 @@ export default function DashboardWrapper({ bots, lastUpdate }: DashboardWrapperP
         <DashboardClient
           initialBots={bots}
           lastUpdate={lastUpdate}
+          totalEvents={totalEvents}
+          totalUsers={totalUsers}
           externalFilterTrigger={triggerFilter}
           onFilterApplied={() => setTriggerFilter(null)}
         />

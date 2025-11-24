@@ -77,7 +77,7 @@ export default function FunnelChart({ funnel }: FunnelChartProps) {
                   <div
                     className="h-12 rounded-md flex items-center justify-between px-4 transition-all duration-300"
                     style={{
-                      width: `${Math.max(widthPercent, 10)}%`,
+                      width: `${Math.min(Math.max(widthPercent, 10), 100)}%`,
                       background: `linear-gradient(to right,
                         ${index === 0 ? '#3b82f6' : '#60a5fa'},
                         ${index === funnel.steps.length - 1 ? '#1e40af' : '#2563eb'}

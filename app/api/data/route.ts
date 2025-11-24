@@ -8,6 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { fetchHoneycombData, fetchLoginStats, fetchUserFunnel } from '@/lib/honeycomb-mcp-client'
 import { transformHoneycombData } from '@/lib/transform-honeycomb'
+import { fetchRevenueStats, fetchDailyRevenue } from '@/lib/revenue-mcp-client'
 
 // 设置 API 路由超时时间为 5 分钟 (300 秒)
 // 这允许 Honeycomb 查询有足够的时间完成大范围数据查询
@@ -40,7 +41,7 @@ export async function GET(request: NextRequest) {
 
     console.log('📊 API 收到数据请求:', { startDate, endDate, startTime, endTime })
 
-    // 从 Honeycomb 获取数据（并行执行，独立错误处理）
+    // 从 Honeycomb 和 Bytebase 获取数据（并行执行，独立错误处理）
     const results = await Promise.allSettled([
       fetchHoneycombData(startTime, endTime),
       startTime && endTime ? fetchLoginStats(startTime, endTime).catch(err => {
@@ -49,6 +50,14 @@ export async function GET(request: NextRequest) {
       }) : Promise.resolve(undefined),
       startTime && endTime ? fetchUserFunnel(startTime, endTime).catch(err => {
         console.error('⚠️ User funnel query failed:', err.message);
+        return undefined;
+      }) : Promise.resolve(undefined),
+      startTime && endTime ? fetchRevenueStats(startTime, endTime).catch(err => {
+        console.error('⚠️ Revenue stats query failed:', err.message);
+        return undefined;
+      }) : Promise.resolve(undefined),
+      startTime && endTime ? fetchDailyRevenue(startTime, endTime).catch(err => {
+        console.error('⚠️ Daily revenue query failed:', err.message);
         return undefined;
       }) : Promise.resolve(undefined)
     ])
@@ -91,6 +100,18 @@ export async function GET(request: NextRequest) {
     // 添加用户行为漏斗数据（如果成功）
     if (results[2].status === 'fulfilled' && results[2].value) {
       dashboardData.userFunnel = results[2].value
+    }
+
+    // 添加收入统计数据（如果成功）
+    if (results[3].status === 'fulfilled' && results[3].value) {
+      dashboardData.revenueStats = results[3].value
+      console.log(`   💰 收入统计: 总收入 $${results[3].value.totalRevenue.toFixed(2)}`)
+    }
+
+    // 添加每日收入趋势数据（如果成功）
+    if (results[4].status === 'fulfilled' && results[4].value) {
+      dashboardData.dailyRevenue = results[4].value
+      console.log(`   📈 每日收入: ${results[4].value.length} 天数据`)
     }
 
     console.log(`✅ API 返回数据: ${dashboardData.bots.length} 个 Bot`)
